@@ -1,9 +1,5 @@
-/* =========================
-   Root & Global Styles
-   ========================= */
-
+/* Root & Global Styles */
 :root {
-  /* Color system: soft, calming palette */
   --color-bg: #f5f7f8;
   --color-bg-soft: #ffffff;
   --color-bg-alt: #eef4f5;
@@ -29,7 +25,6 @@
   --transition-base: 0.24s ease-out;
 }
 
-/* Reset-ish */
 *,
 *::before,
 *::after {
@@ -49,7 +44,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Remove default list/padding margins */
 h1,
 h2,
 h3,
@@ -70,23 +64,18 @@ a {
   text-decoration: none;
 }
 
-/* Focus styles for accessibility */
 :focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
 }
 
-/* =========================
-   Layout Helpers
-   ========================= */
-
+/* Layout Helpers */
 .shell {
   max-width: var(--shell-width);
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
 
-/* Skip link */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -102,10 +91,7 @@ a {
   left: 0.75rem;
 }
 
-/* =========================
-   Header & Navigation
-   ========================= */
-
+/* Header & Navigation */
 .site-header {
   position: sticky;
   top: 0;
@@ -122,14 +108,13 @@ a {
   padding-block: 0.85rem;
 }
 
-/* Logo */
 .logo {
   display: inline-flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-/* LOGO ICON – ΤΟ ΒΓΑΖΟΥΜΕ ΤΕΛΕΙΩΣ */
+/* LOGO ICON – κρυφό */
 .logo-mark {
   display: none;
 }
@@ -152,7 +137,6 @@ a {
   color: var(--color-text-soft);
 }
 
-/* Navigation */
 .primary-nav {
   display: flex;
   align-items: center;
@@ -193,10 +177,7 @@ a {
   width: 100%;
 }
 
-/* =========================
-   Buttons
-   ========================= */
-
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -259,16 +240,13 @@ a {
   width: 100%;
 }
 
-/* =========================
-   Hero Section
-   ========================= */
-
+/* Hero Section */
 .hero {
   position: relative;
   padding-block: 4.5rem 4.25rem;
   background-image:
     linear-gradient(135deg, rgba(244, 252, 255, 0.88), rgba(237, 246, 248, 0.96)),
-    url("hero-psychology.jpg");
+    url("hero-psychology.jpg"); /* ή όποιο hero έχεις */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -352,7 +330,6 @@ a {
   background: radial-gradient(circle, #4f9cae 0, #a7c4b5 100%);
 }
 
-/* Hero side card */
 .hero-card {
   background: rgba(255, 255, 255, 0.96);
   border-radius: var(--radius-lg);
@@ -410,10 +387,7 @@ a {
   border-color: var(--color-accent);
 }
 
-/* =========================
-   Generic Section Styles
-   ========================= */
-
+/* Generic Section Styles */
 .section {
   padding-block: 4.25rem;
 }
@@ -447,10 +421,7 @@ a {
   line-height: 1.8;
 }
 
-/* =========================
-   About Section
-   ========================= */
-
+/* About Section */
 .about {
   background: #f5f7f8;
 }
@@ -491,7 +462,6 @@ a {
   color: var(--color-accent);
 }
 
-/* About card (photo + caption) */
 .about-card {
   margin: 0;
   border-radius: var(--radius-lg);
@@ -501,7 +471,7 @@ a {
   border: 1px solid rgba(221, 227, 234, 0.95);
 }
 
-/* ΦΩΤΟ ΓΙΑ ΤΟ ABOUT – ΣΩΣΤΟ CROP ΣΤΟ ΠΡΟΣΩΠΟ */
+/* ΕΔΩ ΦΤΙΑΧΝΟΥΜΕ ΤΟ CROP ΤΗΣ ΦΩΤΟ */
 .about-photo {
   height: 280px;
   border-radius: 14px;
@@ -509,7 +479,7 @@ a {
     linear-gradient(135deg, rgba(79, 156, 174, 0.09), rgba(167, 196, 181, 0.18)),
     url("about-therapist.png");
   background-size: cover;
-  background-position: center top;
+  background-position: center top; /* focus στο πρόσωπο */
 }
 
 .about-caption {
@@ -527,10 +497,7 @@ a {
   color: var(--color-text-soft);
 }
 
-/* =========================
-   Services Section
-   ========================= */
-
+/* Services Section */
 .services {
   background: linear-gradient(180deg, #eef4f5, #f5f7f8);
 }
@@ -586,10 +553,7 @@ a {
   margin-top: 0.3rem;
 }
 
-/* =========================
-   Testimonials Section
-   ========================= */
-
+/* Testimonials Section */
 .testimonials {
   background: #f5f7f8;
 }
@@ -620,10 +584,7 @@ a {
   color: var(--color-text-soft);
 }
 
-/* =========================
-   Contact Section
-   ========================= */
-
+/* Contact Section */
 .contact {
   background: linear-gradient(135deg, #e6f0f2, #f5f7f8);
 }
@@ -663,7 +624,6 @@ a {
   color: var(--color-danger);
 }
 
-/* Contact form */
 .contact-form {
   background: #ffffff;
   border-radius: var(--radius-lg);
@@ -716,7 +676,6 @@ a {
   min-height: 120px;
 }
 
-/* Inputs focus */
 .form-field input:focus-visible,
 .form-field select:focus-visible,
 .form-field textarea:focus-visible {
@@ -731,10 +690,7 @@ a {
   color: var(--color-text-soft);
 }
 
-/* =========================
-   Footer
-   ========================= */
-
+/* Footer */
 .site-footer {
   padding-block: 1.8rem 2rem;
   background: #f0f3f6;
@@ -753,11 +709,7 @@ a {
   margin-inline: auto;
 }
 
-/* =========================
-   Responsive Layout
-   ========================= */
-
-/* Tablets and up */
+/* Responsive */
 @media (min-width: 720px) {
   .hero-inner {
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
@@ -784,7 +736,6 @@ a {
   }
 }
 
-/* Small screens / mobile-first adjustments */
 @media (max-width: 719.98px) {
   .primary-nav ul {
     display: none;
@@ -811,7 +762,6 @@ a {
   }
 }
 
-/* Larger desktops */
 @media (min-width: 1040px) {
   .hero {
     padding-block: 5rem 4.8rem;
