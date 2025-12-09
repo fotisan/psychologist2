@@ -1,391 +1,823 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Basic SEO -->
-    <meta charset="utf-8" />
-    <title>Dr. Emily Carter, PhD | Private Practice Psychologist</title>
-    <meta
-      name="description"
-      content="Dr. Emily Carter is a licensed psychologist in private practice in the United States, offering individual therapy, couples counseling, and anxiety treatment in a calm, supportive environment."
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+/* =========================
+   Root & Global Styles
+   ========================= */
 
-    <!-- Open Graph (Social Sharing) -->
-    <meta property="og:title" content="Dr. Emily Carter, PhD | Private Practice Psychologist" />
-    <meta
-      property="og:description"
-      content="A calm, supportive space for individual therapy, couples counseling, and anxiety treatment."
-    />
-    <meta property="og:type" content="website" />
+:root {
+  /* Color system: soft, calming palette */
+  --color-bg: #f5f7f8;
+  --color-bg-soft: #ffffff;
+  --color-bg-alt: #eef4f5;
+  --color-accent: #4f9cae;
+  --color-accent-soft: #cbe6ea;
+  --color-accent-2: #a7c4b5;
+  --color-text: #283039;
+  --color-text-soft: #5a6470;
+  --color-border-subtle: #dde3ea;
+  --color-danger: #b14f4f;
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  --shadow-soft: 0 18px 45px rgba(15, 30, 40, 0.12);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Skip link for accessibility -->
-    <a class="skip-link" href="#main-content">Skip to main content</a>
+  --font-heading: "Lora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", serif;
+  --font-body: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-    <!-- SITE HEADER -->
-    <header class="site-header">
-      <div class="shell header-inner">
-        <a href="#hero" class="logo">
-          <span class="logo-mark" aria-hidden="true"></span>
-          <span class="logo-text">
-            <span class="logo-name">Dr. Emily Carter</span>
-            <span class="logo-subtitle">Licensed Psychologist, PhD</span>
-          </span>
-        </a>
+  --shell-width: 1120px;
 
-        <!-- Simple nav for one-page layout -->
-        <nav class="primary-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <a class="btn nav-cta" href="#contact">Book a Session</a>
-        </nav>
-      </div>
-    </header>
+  --transition-fast: 0.18s ease-out;
+  --transition-base: 0.24s ease-out;
+}
 
-    <!-- MAIN CONTENT -->
-    <main id="main-content">
-      <!-- HERO SECTION -->
-      <section id="hero" class="hero" aria-labelledby="hero-heading">
-        <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="shell hero-inner">
-          <div class="hero-content">
-            <p class="eyebrow">Private Practice • Online & In-person</p>
-            <h1 id="hero-heading">
-              A calm, safe space<br />
-              to untangle your mind.
-            </h1>
-            <p class="hero-subtitle">
-              Evidence-based therapy for anxiety, burnout, and relationship challenges—
-              tailored to thoughtful professionals who are ready for change.
-            </p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary">Book a Session</a>
-              <a href="#about" class="btn btn-ghost">Learn more</a>
-            </div>
-            <ul class="hero-highlights" aria-label="Key highlights">
-              <li>Licensed Psychologist (PhD)</li>
-              <li>Individual & Couples Therapy</li>
-              <li>Based in Seattle, WA · Telehealth for select states</li>
-            </ul>
-          </div>
+/* Reset-ish */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-          <!-- Hero “card” for credibility instead of image of a person -->
-          <aside class="hero-card" aria-label="Practice snapshot">
-            <h2 class="hero-card-title">New client availability</h2>
-            <p class="hero-card-text">
-              Limited evening and lunchtime appointments are currently open for new clients.
-            </p>
-            <div class="hero-card-row">
-              <span class="hero-card-label">Average wait time</span>
-              <span class="hero-card-value">1–2 weeks</span>
-            </div>
-            <div class="hero-card-row">
-              <span class="hero-card-label">Session length</span>
-              <span class="hero-card-value">50 minutes</span>
-            </div>
-            <div class="hero-card-row">
-              <span class="hero-card-label">Insurance</span>
-              <span class="hero-card-value">Out-of-network · Superbills provided</span>
-            </div>
-            <a href="#contact" class="hero-card-link">Check availability &rarr;</a>
-          </aside>
-        </div>
-      </section>
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 
-      <!-- ABOUT SECTION -->
-      <section id="about" class="section about" aria-labelledby="about-heading">
-        <div class="shell section-inner">
-          <div class="section-header">
-            <h2 id="about-heading">Meet Dr. Carter</h2>
-            <p class="section-intro">
-              Thoughtful, collaborative care that respects your pace and your story.
-            </p>
-          </div>
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: radial-gradient(circle at top left, #f4fbff 0, #f5f7f8 42%, #edf2f5 100%);
+  -webkit-font-smoothing: antialiased;
+}
 
-          <div class="about-grid">
-            <!-- Text content -->
-            <div class="about-text">
-              <p>
-                I’m a licensed psychologist specializing in anxiety, perfectionism, and relationship
-                concerns. Many of my clients are high-achieving professionals who feel like they are
-                “holding it all together” on the outside while feeling overwhelmed or stuck inside.
-              </p>
-              <p>
-                In our work together, we slow things down. We look at your patterns with curiosity
-                rather than judgment, and we build practical tools that you can take back into your
-                daily life. My approach is warm, grounded, and science-informed, drawing from CBT,
-                ACT, and mindfulness-based therapies.
-              </p>
-              <p>
-                Therapy is not about “fixing” you. It’s about creating enough space and support so
-                that you can move toward a life that feels more aligned, connected, and sustainable.
-              </p>
+/* Remove default list/padding margins */
+h1,
+h2,
+h3,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
 
-              <ul class="about-list" aria-label="Training and specialties">
-                <li>PhD in Clinical Psychology · University of Washington</li>
-                <li>10+ years of experience in private practice and university counseling centers</li>
-                <li>Special focus on anxiety, burnout, and complex relationship patterns</li>
-              </ul>
-            </div>
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-            <!-- Simple photo / card substitute -->
-            <figure class="about-card">
-              <div class="about-photo" aria-hidden="true"></div>
-              <figcaption class="about-caption">
-                <p class="about-name">Dr. Emily Carter, PhD</p>
-                <p class="about-role">Licensed Psychologist · PSY ######</p>
-                <p class="about-location">Seattle, Washington · Telehealth available</p>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-      <!-- SERVICES SECTION -->
-      <section id="services" class="section services" aria-labelledby="services-heading">
-        <div class="shell section-inner">
-          <div class="section-header">
-            <h2 id="services-heading">How I can support you</h2>
-            <p class="section-intro">
-              Flexible, individualized care for the seasons of life when you need more than just
-              “pushing through.”
-            </p>
-          </div>
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
 
-          <div class="services-grid" role="list">
-            <!-- Service card 1 -->
-            <article class="service-card" role="listitem">
-              <h3>Individual Therapy</h3>
-              <p>
-                Weekly or bi-weekly sessions focused on anxiety, burnout, self-criticism, and life
-                transitions. Together we develop coping skills, emotional awareness, and a more
-                compassionate inner voice.
-              </p>
-              <ul>
-                <li>Anxiety & stress</li>
-                <li>Perfectionism & overthinking</li>
-                <li>Life transitions & identity shifts</li>
-              </ul>
-            </article>
+/* =========================
+   Layout Helpers
+   ========================= */
 
-            <!-- Service card 2 -->
-            <article class="service-card" role="listitem">
-              <h3>Couples Therapy</h3>
-              <p>
-                Support for partners navigating conflict, distance, or major decisions. We work on
-                communication patterns, emotional safety, and rebuilding connection.
-              </p>
-              <ul>
-                <li>Communication & conflict</li>
-                <li>Trust & intimacy</li>
-                <li>Life changes & parenting stress</li>
-              </ul>
-            </article>
+.shell {
+  max-width: var(--shell-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
 
-            <!-- Service card 3 -->
-            <article class="service-card" role="listitem">
-              <h3>Anxiety & Panic Treatment</h3>
-              <p>
-                Structured, evidence-based treatment for generalized anxiety, social anxiety, and
-                panic. We combine CBT, exposure, and mindfulness tools at a pace that feels
-                manageable.
-              </p>
-              <ul>
-                <li>Generalized anxiety</li>
-                <li>Panic attacks & health anxiety</li>
-                <li>Performance & social anxiety</li>
-              </ul>
-            </article>
-          </div>
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  z-index: 999;
+}
 
-          <p class="services-note">
-            Not sure which service fits? We can decide together during your free 15-minute
-            consultation.
-          </p>
-        </div>
-      </section>
+.skip-link:focus-visible {
+  left: 0.75rem;
+}
 
-      <!-- TESTIMONIALS SECTION -->
-      <section
-        id="testimonials"
-        class="section testimonials"
-        aria-labelledby="testimonials-heading"
-      >
-        <div class="shell section-inner">
-          <div class="section-header">
-            <h2 id="testimonials-heading">What clients are saying</h2>
-            <p class="section-intro">
-              To protect privacy, the following are composite reflections based on common feedback
-              from clients.
-            </p>
-          </div>
+/* =========================
+   Header & Navigation
+   ========================= */
 
-          <div class="testimonials-grid" role="list">
-            <!-- Testimonial 1 -->
-            <figure class="testimonial-card" role="listitem">
-              <blockquote>
-                “I came in feeling constantly on edge and guilty for not being ‘enough’ at work or at
-                home. For the first time, I have language for what I’m feeling and tools that
-                actually fit my life.”
-              </blockquote>
-              <figcaption>— M., 34, marketing professional</figcaption>
-            </figure>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, #f5f7f8 86%, rgba(255, 255, 255, 0.9) 14%);
+  border-bottom: 1px solid rgba(221, 227, 234, 0.6);
+}
 
-            <!-- Testimonial 2 -->
-            <figure class="testimonial-card" role="listitem">
-              <blockquote>
-                “We were stuck in the same argument on repeat. Dr. Carter helped us slow our
-                reactions and actually hear each other. We’re not perfect, but we feel like a team
-                again.”
-              </blockquote>
-              <figcaption>— A. & J., couple in their 40s</figcaption>
-            </figure>
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.85rem;
+}
 
-            <!-- Testimonial 3 -->
-            <figure class="testimonial-card" role="listitem">
-              <blockquote>
-                “Therapy with Emily feels calm and direct at the same time. I never feel pushed, but
-                I also don’t feel like I’m just venting. There’s a clear sense of direction.”
-              </blockquote>
-              <figcaption>— K., 29, healthcare worker</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+/* Logo */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
 
-      <!-- CONTACT SECTION -->
-      <section id="contact" class="section contact" aria-labelledby="contact-heading">
-        <div class="shell section-inner contact-inner">
-          <div class="contact-copy">
-            <div class="section-header section-header-left">
-              <h2 id="contact-heading">Book a session or consultation</h2>
-              <p class="section-intro">
-                Please share a few details below. I typically respond within 1–2 business days with
-                current availability and next steps.
-              </p>
-            </div>
+/* LOGO ICON – ΤΟ ΒΓΑΖΟΥΜΕ ΤΕΛΕΙΩΣ */
+.logo-mark {
+  display: none;
+}
 
-            <ul class="contact-details" aria-label="Practice details">
-              <li>
-                <span class="contact-label">Location</span>
-                <span class="contact-value">Seattle, WA · Telehealth for select states</span>
-              </li>
-              <li>
-                <span class="contact-label">Email</span>
-                <a class="contact-value" href="mailto:hello@dremilycarter.com">
-                  hello@dremilycarter.com
-                </a>
-              </li>
-              <li>
-                <span class="contact-label">Phone</span>
-                <a class="contact-value" href="tel:+12065550123">(206) 555-0123</a>
-              </li>
-            </ul>
-            <p class="contact-note">
-              If you are experiencing a crisis or emergency, please call 988 or your local
-              emergency number, or go to the nearest emergency room.
-            </p>
-          </div>
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
 
-          <!-- Accessible contact form -->
-          <form class="contact-form" action="#" method="post" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Full name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autocomplete="name"
-                  required
-                  aria-required="true"
-                />
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  required
-                  aria-required="true"
-                />
-              </div>
-            </div>
+.logo-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
 
-            <div class="form-row">
-              <div class="form-field">
-                <label for="phone">Phone (optional)</label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  autocomplete="tel"
-                  placeholder="(555) 555-5555"
-                />
-              </div>
-              <div class="form-field">
-                <label for="service">What are you seeking help with?</label>
-                <select id="service" name="service">
-                  <option value="">Select an option</option>
-                  <option value="individual">Individual therapy</option>
-                  <option value="couples">Couples therapy</option>
-                  <option value="anxiety">Anxiety / panic treatment</option>
-                  <option value="other">Not sure / something else</option>
-                </select>
-              </div>
-            </div>
+.logo-subtitle {
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
 
-            <div class="form-field">
-              <label for="message">Briefly share what you’d like support with</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="You can include preferred times, telehealth vs. in-person, or anything else that feels important to share."
-              ></textarea>
-            </div>
+/* Navigation */
+.primary-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 0.9rem;
+}
 
-            <div class="form-disclaimer">
-              <p>
-                This form is for general inquiries only and is not monitored 24/7. Please avoid
-                sharing highly sensitive information.
-              </p>
-            </div>
+.primary-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
 
-            <button type="submit" class="btn btn-primary btn-full-width">
-              Submit inquiry
-            </button>
-          </form>
-        </div>
-      </section>
-    </main>
+.primary-nav a {
+  position: relative;
+  font-weight: 400;
+  color: var(--color-text-soft);
+  transition: color var(--transition-fast);
+}
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="shell footer-inner">
-        <p>&copy; <span id="year">2025</span> Dr. Emily Carter, PhD. All rights reserved.</p>
-        <p class="footer-meta">
-          This website is for informational purposes only and does not constitute medical or
-          psychological advice.
-        </p>
-      </div>
-    </footer>
-  </body>
-</html>
+.primary-nav a:hover {
+  color: var(--color-text);
+}
+
+.primary-nav ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 0%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4f9cae, #a7c4b5);
+  transition: width var(--transition-base);
+}
+
+.primary-nav ul a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.72rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f9cae, #a7c4b5);
+  color: #ffffff;
+  box-shadow: 0 16px 34px rgba(79, 156, 174, 0.38);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(79, 156, 174, 0.45);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-soft);
+  border-color: rgba(79, 156, 174, 0.35);
+}
+
+.btn-ghost:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+  background: rgba(203, 230, 234, 0.45);
+  transform: translateY(-1px);
+}
+
+.nav-cta {
+  padding-inline: 1.2rem;
+  font-size: 0.86rem;
+  background: #ffffff;
+  border-color: rgba(79, 156, 174, 0.3);
+  box-shadow: 0 10px 25px rgba(20, 40, 50, 0.12);
+}
+
+.nav-cta:hover {
+  background: #f0f7f8;
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.btn-full-width {
+  width: 100%;
+}
+
+/* =========================
+   Hero Section
+   ========================= */
+
+.hero {
+  position: relative;
+  padding-block: 4.5rem 4.25rem;
+  background-image:
+    linear-gradient(135deg, rgba(244, 252, 255, 0.88), rgba(237, 246, 248, 0.96)),
+    url("hero-psychology.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(79, 156, 174, 0.36), transparent 55%);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: rgba(203, 230, 234, 0.9);
+  color: #28454d;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.15rem, 4vw, 2.9rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-text-soft);
+  max-width: 32rem;
+  margin-bottom: 1.6rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 1.8rem;
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+.hero-highlights li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.hero-highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, #4f9cae 0, #a7c4b5 100%);
+}
+
+/* Hero side card */
+.hero-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.4rem 1.5rem;
+  box-shadow: var(--shadow-soft);
+  max-width: 340px;
+  border: 1px solid rgba(221, 227, 234, 0.85);
+}
+
+.hero-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.hero-card-text {
+  font-size: 0.88rem;
+  color: var(--color-text-soft);
+  margin-bottom: 1.1rem;
+}
+
+.hero-card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.84rem;
+  padding-block: 0.4rem;
+  border-top: 1px dashed rgba(221, 227, 234, 0.9);
+}
+
+.hero-card-row:first-of-type {
+  border-top-style: solid;
+}
+
+.hero-card-label {
+  color: var(--color-text-soft);
+}
+
+.hero-card-value {
+  font-weight: 500;
+  color: #2f3a42;
+}
+
+.hero-card-link {
+  display: inline-flex;
+  margin-top: 1rem;
+  font-size: 0.86rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base);
+}
+
+.hero-card-link:hover {
+  border-color: var(--color-accent);
+}
+
+/* =========================
+   Generic Section Styles
+   ========================= */
+
+.section {
+  padding-block: 4.25rem;
+}
+
+.section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.section-header-left {
+  text-align: left;
+  margin-inline: 0;
+}
+
+.section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-intro {
+  font-size: 0.96rem;
+  color: var(--color-text-soft);
+  line-height: 1.8;
+}
+
+/* =========================
+   About Section
+   ========================= */
+
+.about {
+  background: #f5f7f8;
+}
+
+.about-grid {
+  display: grid;
+  gap: 2.3rem;
+  align-items: center;
+}
+
+.about-text p + p {
+  margin-top: 0.8rem;
+}
+
+.about-text p {
+  font-size: 0.97rem;
+  line-height: 1.9;
+  color: var(--color-text-soft);
+}
+
+.about-list {
+  margin-top: 1.3rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.about-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.about-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+}
+
+/* About card (photo + caption) */
+.about-card {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-soft);
+  padding: 0.8rem;
+  box-shadow: 0 14px 40px rgba(10, 35, 45, 0.16);
+  border: 1px solid rgba(221, 227, 234, 0.95);
+}
+
+/* ΦΩΤΟ ΓΙΑ ΤΟ ABOUT – ΣΩΣΤΟ CROP ΣΤΟ ΠΡΟΣΩΠΟ */
+.about-photo {
+  height: 280px;
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(79, 156, 174, 0.09), rgba(167, 196, 181, 0.18)),
+    url("about-therapist.png");
+  background-size: cover;
+  background-position: center top;
+}
+
+.about-caption {
+  padding: 0.9rem 0.4rem 0.2rem;
+}
+
+.about-name {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.about-role,
+.about-location {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+/* =========================
+   Services Section
+   ========================= */
+
+.services {
+  background: linear-gradient(180deg, #eef4f5, #f5f7f8);
+}
+
+.services-grid {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.4rem 1.45rem;
+  border: 1px solid rgba(221, 227, 234, 0.95);
+  box-shadow: 0 18px 40px rgba(12, 30, 40, 0.12);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(12, 30, 40, 0.18);
+  border-color: rgba(79, 156, 174, 0.35);
+}
+
+.service-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+.service-card ul {
+  font-size: 0.86rem;
+  color: var(--color-text);
+}
+
+.service-card li + li {
+  margin-top: 0.25rem;
+}
+
+.services-note {
+  font-size: 0.86rem;
+  color: var(--color-text-soft);
+  margin-top: 0.3rem;
+}
+
+/* =========================
+   Testimonials Section
+   ========================= */
+
+.testimonials {
+  background: #f5f7f8;
+}
+
+.testimonials-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  margin: 0;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgba(221, 227, 234, 0.9);
+  box-shadow: 0 14px 35px rgba(10, 30, 40, 0.12);
+}
+
+.testimonial-card blockquote {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.testimonial-card figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+/* =========================
+   Contact Section
+   ========================= */
+
+.contact {
+  background: linear-gradient(135deg, #e6f0f2, #f5f7f8);
+}
+
+.contact-inner {
+  display: grid;
+  gap: 2.4rem;
+  align-items: flex-start;
+}
+
+.contact-details {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-soft);
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.contact-value:hover {
+  text-decoration: underline;
+}
+
+.contact-note {
+  margin-top: 1.1rem;
+  font-size: 0.78rem;
+  color: var(--color-danger);
+}
+
+/* Contact form */
+.contact-form {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.4rem 1.6rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(221, 227, 234, 0.95);
+}
+
+.form-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  border-radius: 11px;
+  border: 1px solid rgba(190, 205, 215, 0.98);
+  padding: 0.65rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: #fbfdfd;
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(126, 138, 150, 0.9);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Inputs focus */
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  border-color: var(--color-accent);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(79, 156, 174, 0.35);
+}
+
+.form-disclaimer {
+  margin-block: 0.4rem 0.85rem;
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+.site-footer {
+  padding-block: 1.8rem 2rem;
+  background: #f0f3f6;
+  border-top: 1px solid rgba(221, 227, 234, 0.95);
+  font-size: 0.8rem;
+  color: var(--color-text-soft);
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+.footer-meta {
+  margin-top: 0.4rem;
+  max-width: 580px;
+  margin-inline: auto;
+}
+
+/* =========================
+   Responsive Layout
+   ========================= */
+
+/* Tablets and up */
+@media (min-width: 720px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  }
+
+  .about-grid {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .contact-inner {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Small screens / mobile-first adjustments */
+@media (max-width: 719.98px) {
+  .primary-nav ul {
+    display: none;
+  }
+
+  .site-header {
+    padding-inline: 0.25rem;
+  }
+
+  .hero {
+    padding-block: 3.6rem 3.5rem;
+  }
+
+  .hero-card {
+    max-width: 100%;
+  }
+
+  .section {
+    padding-block: 3.5rem;
+  }
+
+  .contact-form {
+    padding-inline: 1.1rem;
+  }
+}
+
+/* Larger desktops */
+@media (min-width: 1040px) {
+  .hero {
+    padding-block: 5rem 4.8rem;
+  }
+
+  .hero-content {
+    max-width: 620px;
+  }
+}
