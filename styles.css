@@ -3,7 +3,6 @@
    ========================= */
 
 :root {
-  /* Color system: soft, calming palette */
   --color-bg: #f5f7f8;
   --color-bg-soft: #ffffff;
   --color-bg-alt: #eef4f5;
@@ -29,7 +28,7 @@
   --transition-base: 0.24s ease-out;
 }
 
-/* Reset-ish */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -49,13 +48,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Remove default list/padding margins */
-h1,
-h2,
-h3,
-p,
-figure,
-blockquote {
+h1, h2, h3, p, figure, blockquote {
   margin: 0;
 }
 
@@ -70,7 +63,6 @@ a {
   text-decoration: none;
 }
 
-/* Focus styles for accessibility */
 :focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
@@ -103,7 +95,7 @@ a {
 }
 
 /* =========================
-   Header & Navigation
+   Header
    ========================= */
 
 .site-header {
@@ -147,7 +139,6 @@ a {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1.05rem;
-  letter-spacing: 0.02em;
 }
 
 .logo-subtitle {
@@ -160,7 +151,6 @@ a {
   display: flex;
   align-items: center;
   gap: 1.4rem;
-  font-size: 0.9rem;
 }
 
 .primary-nav ul {
@@ -211,13 +201,11 @@ a {
   font-weight: 500;
   border: 1px solid transparent;
   cursor: pointer;
-  white-space: nowrap;
-  transition:
-    background-color var(--transition-base),
-    color var(--transition-base),
-    border-color var(--transition-base),
-    transform var(--transition-base),
-    box-shadow var(--transition-base);
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              border-color var(--transition-base),
+              transform var(--transition-base),
+              box-shadow var(--transition-base);
 }
 
 .btn-primary {
@@ -255,11 +243,6 @@ a {
 .nav-cta:hover {
   background: #f0f7f8;
   border-color: var(--color-accent);
-  transform: translateY(-1px);
-}
-
-.btn-full-width {
-  width: 100%;
 }
 
 /* =========================
@@ -272,7 +255,6 @@ a {
   background-image:
     linear-gradient(135deg, rgba(244, 252, 255, 0.88), rgba(237, 246, 248, 0.96)),
     url("hero-psychology.jpg");
-  /* Replace hero-psychology.jpg with your actual background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -283,11 +265,9 @@ a {
   inset: 0;
   background: radial-gradient(circle at top left, rgba(79, 156, 174, 0.36), transparent 55%);
   mix-blend-mode: soft-light;
-  pointer-events: none;
 }
 
 .hero-inner {
-  position: relative;
   display: grid;
   gap: 2.5rem;
   align-items: center;
@@ -356,101 +336,6 @@ a {
   background: radial-gradient(circle, #4f9cae 0, #a7c4b5 100%);
 }
 
-/* Hero side card */
-.hero-card {
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: var(--radius-lg);
-  padding: 1.6rem 1.4rem 1.5rem;
-  box-shadow: var(--shadow-soft);
-  max-width: 340px;
-  border: 1px solid rgba(221, 227, 234, 0.85);
-}
-
-.hero-card-title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-}
-
-.hero-card-text {
-  font-size: 0.88rem;
-  color: var(--color-text-soft);
-  margin-bottom: 1.1rem;
-}
-
-.hero-card-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.84rem;
-  padding-block: 0.4rem;
-  border-top: 1px dashed rgba(221, 227, 234, 0.9);
-}
-
-.hero-card-row:first-of-type {
-  border-top-style: solid;
-}
-
-.hero-card-label {
-  color: var(--color-text-soft);
-}
-
-.hero-card-value {
-  font-weight: 500;
-  color: #2f3a42;
-}
-
-.hero-card-link {
-  display: inline-flex;
-  margin-top: 1rem;
-  font-size: 0.86rem;
-  color: var(--color-accent);
-  font-weight: 500;
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--transition-base);
-}
-
-.hero-card-link:hover {
-  border-color: var(--color-accent);
-}
-
-/* =========================
-   Generic Section Styles
-   ========================= */
-
-.section {
-  padding-block: 4.25rem;
-}
-
-.section-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.section-header {
-  text-align: center;
-  max-width: 640px;
-  margin-inline: auto;
-}
-
-.section-header-left {
-  text-align: left;
-  margin-inline: 0;
-}
-
-.section h2 {
-  font-family: var(--font-heading);
-  font-size: 1.9rem;
-  margin-bottom: 0.75rem;
-}
-
-.section-intro {
-  font-size: 0.96rem;
-  color: var(--color-text-soft);
-  line-height: 1.8;
-}
-
 /* =========================
    About Section
    ========================= */
@@ -495,7 +380,7 @@ a {
   color: var(--color-accent);
 }
 
-/* About card (photo + caption) */
+/* About photo card */
 .about-card {
   margin: 0;
   border-radius: var(--radius-lg);
@@ -510,8 +395,7 @@ a {
   border-radius: 14px;
   background:
     linear-gradient(135deg, rgba(79, 156, 174, 0.09), rgba(167, 196, 181, 0.18)),
-    url("therapist-office.jpg");
-  /* Replace therapist-office.jpg with a real high-quality image */
+    url("about-therapist.png");  /* UPDATED */
   background-size: cover;
   background-position: center;
 }
@@ -584,12 +468,6 @@ a {
   margin-top: 0.25rem;
 }
 
-.services-note {
-  font-size: 0.86rem;
-  color: var(--color-text-soft);
-  margin-top: 0.3rem;
-}
-
 /* =========================
    Testimonials Section
    ========================= */
@@ -645,7 +523,6 @@ a {
 }
 
 .contact-label {
-  display: block;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -655,10 +532,6 @@ a {
 .contact-value {
   font-size: 0.95rem;
   font-weight: 500;
-}
-
-.contact-value:hover {
-  text-decoration: underline;
 }
 
 .contact-note {
@@ -704,15 +577,6 @@ a {
   font-size: 0.9rem;
   color: var(--color-text);
   background: #fbfdfd;
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    background-color var(--transition-base);
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-  color: rgba(126, 138, 150, 0.9);
 }
 
 .form-field textarea {
@@ -720,19 +584,12 @@ a {
   min-height: 120px;
 }
 
-/* Inputs focus */
 .form-field input:focus-visible,
 .form-field select:focus-visible,
 .form-field textarea:focus-visible {
   border-color: var(--color-accent);
   background-color: #ffffff;
   box-shadow: 0 0 0 1px rgba(79, 156, 174, 0.35);
-}
-
-.form-disclaimer {
-  margin-block: 0.4rem 0.85rem;
-  font-size: 0.78rem;
-  color: var(--color-text-soft);
 }
 
 /* =========================
@@ -761,7 +618,6 @@ a {
    Responsive Layout
    ========================= */
 
-/* Tablets and up */
 @media (min-width: 720px) {
   .hero-inner {
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
@@ -788,10 +644,9 @@ a {
   }
 }
 
-/* Small screens / mobile-first adjustments */
 @media (max-width: 719.98px) {
   .primary-nav ul {
-    display: none; /* Simple approach for one-page demo; could be extended with a mobile menu */
+    display: none;
   }
 
   .site-header {
@@ -815,7 +670,6 @@ a {
   }
 }
 
-/* Larger desktops */
 @media (min-width: 1040px) {
   .hero {
     padding-block: 5rem 4.8rem;
