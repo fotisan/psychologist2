@@ -130,15 +130,14 @@ a {
 }
 
 .logo-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: #4f9cae;       /* brand primary color */
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #dcdcdc;
   box-shadow:
-    0 4px 10px rgba(0,0,0,0.06),
-    inset 0 0 0 1px rgba(255,255,255,0.45);
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.65);
 }
-
 
 .logo-text {
   display: flex;
@@ -509,13 +508,14 @@ a {
 }
 
 .about-photo {
-  height: 280px; /* πιο ψηλό για να χωράει το κεφάλι */
+  height: 220px;
   border-radius: 14px;
   background:
     linear-gradient(135deg, rgba(79, 156, 174, 0.09), rgba(167, 196, 181, 0.18)),
     url("about-therapist.png");
+  /* Replace about-therapist.png with a real high-quality image */
   background-size: cover;
-  background-position: center top; /* focus στο πάνω μέρος = πρόσωπο */
+  background-position: center;
 }
 
 .about-caption {
