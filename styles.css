@@ -129,14 +129,9 @@ a {
   gap: 0.8rem;
 }
 
+/* LOGO ICON – ΤΟ ΒΓΑΖΟΥΜΕ ΤΕΛΕΙΩΣ */
 .logo-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: #dcdcdc;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.65);
+  display: none;
 }
 
 .logo-text {
@@ -274,7 +269,6 @@ a {
   background-image:
     linear-gradient(135deg, rgba(244, 252, 255, 0.88), rgba(237, 246, 248, 0.96)),
     url("hero-psychology.jpg");
-  /* Replace hero-psychology.jpg with your actual background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -507,15 +501,15 @@ a {
   border: 1px solid rgba(221, 227, 234, 0.95);
 }
 
+/* ΦΩΤΟ ΓΙΑ ΤΟ ABOUT – ΣΩΣΤΟ CROP ΣΤΟ ΠΡΟΣΩΠΟ */
 .about-photo {
-  height: 220px;
+  height: 280px;
   border-radius: 14px;
   background:
     linear-gradient(135deg, rgba(79, 156, 174, 0.09), rgba(167, 196, 181, 0.18)),
     url("about-therapist.png");
-  /* Replace about-therapist.png with a real high-quality image */
   background-size: cover;
-  background-position: center;
+  background-position: center top;
 }
 
 .about-caption {
@@ -793,7 +787,7 @@ a {
 /* Small screens / mobile-first adjustments */
 @media (max-width: 719.98px) {
   .primary-nav ul {
-    display: none; /* Simple approach for one-page demo; could be extended with a mobile menu */
+    display: none;
   }
 
   .site-header {
