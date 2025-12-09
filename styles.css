@@ -130,11 +130,14 @@ a {
 }
 
 .logo-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 28% 72% 62% 38%;
-  background: radial-gradient(circle at 20% 0%, #cbe6ea 0, #4f9cae 40%, #a7c4b5 100%);
-  box-shadow: 0 10px 25px rgba(79, 156, 174, 0.36);
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4f9cae, #7fbac0);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 4px 12px rgba(79, 156, 174, 0.35),
+    inset 0 0 6px rgba(255, 255, 255, 0.35);
 }
 
 .logo-text {
