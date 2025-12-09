@@ -133,12 +133,12 @@ a {
   width: 34px;
   height: 34px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #4f9cae, #7fbac0);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: #4f9cae;       /* brand primary color */
   box-shadow:
-    0 4px 12px rgba(79, 156, 174, 0.35),
-    inset 0 0 6px rgba(255, 255, 255, 0.35);
+    0 4px 10px rgba(0,0,0,0.06),
+    inset 0 0 0 1px rgba(255,255,255,0.45);
 }
+
 
 .logo-text {
   display: flex;
