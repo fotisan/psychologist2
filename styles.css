@@ -473,7 +473,7 @@ a {
 
 /* ΕΔΩ ΦΤΙΑΧΝΟΥΜΕ ΤΟ CROP ΤΗΣ ΦΩΤΟ */
 .about-photo {
-  height: 280px;
+  height: 380px;
   border-radius: 14px;
   background:
     linear-gradient(135deg, rgba(79, 156, 174, 0.09), rgba(167, 196, 181, 0.18)),
