@@ -246,7 +246,7 @@ a {
   padding-block: 4.5rem 4.25rem;
   background-image:
     linear-gradient(135deg, rgba(244, 252, 255, 0.88), rgba(237, 246, 248, 0.96)),
-    url("hero-psychology.jpg"); /* ή όποιο hero έχεις */
+    url("hero-psychology.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -471,7 +471,6 @@ a {
   border: 1px solid rgba(221, 227, 234, 0.95);
 }
 
-/* ΕΔΩ ΦΤΙΑΧΝΟΥΜΕ ΤΟ CROP ΤΗΣ ΦΩΤΟ */
 .about-photo {
   height: 380px;
   border-radius: 14px;
@@ -479,7 +478,7 @@ a {
     linear-gradient(135deg, rgba(79, 156, 174, 0.09), rgba(167, 196, 181, 0.18)),
     url("about-therapist.png");
   background-size: cover;
-  background-position: center top; /* focus στο πρόσωπο */
+  background-position: center top;
 }
 
 .about-caption {
@@ -709,36 +708,12 @@ a {
   margin-inline: auto;
 }
 
-/* Responsive */
-@media (min-width: 720px) {
-  .hero-inner {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  }
+/* RESPONSIVE – MOBILE FIRST */
 
-  .about-grid {
-    grid-template-columns: 1.5fr 1fr;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .testimonials-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .contact-inner {
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  }
-
-  .form-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
+/* Small screens (κάτω από 720px) */
 @media (max-width: 719.98px) {
   .primary-nav ul {
-    display: none;
+    display: none; /* προς το παρόν κρύβουμε τα links σε mobile */
   }
 
   .site-header {
@@ -762,6 +737,34 @@ a {
   }
 }
 
+/* Tablet & up */
+@media (min-width: 720px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .contact-inner {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop & large */
 @media (min-width: 1040px) {
   .hero {
     padding-block: 5rem 4.8rem;
@@ -769,5 +772,33 @@ a {
 
   .hero-content {
     max-width: 620px;
+  }
+}
+
+/* Extra small devices (π.χ. < 480px) για πιο «μαζεμένο» feeling */
+@media (max-width: 479.98px) {
+  .shell {
+    padding-inline: 1.1rem;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle,
+  .section-intro {
+    font-size: 0.9rem;
+  }
+
+  .hero-card {
+    padding: 1.3rem 1.1rem 1.3rem;
+  }
+
+  .contact-form {
+    padding-block: 1.3rem 1.4rem;
   }
 }
